@@ -1,0 +1,102 @@
+/* Shared responsive rules for admin and cashier surfaces. */
+:focus-visible { outline: 3px solid rgb(82 107 94 / 40%); outline-offset: 2px; }
+
+@media (max-width: 960px) {
+    .sidebar { position: sticky; z-index: 20; top: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "brand user" "nav nav"; width: 100%; height: auto; padding: 10px 18px 8px; border-right: 0; border-bottom: 1px solid #e8e8e2; box-shadow: 0 3px 12px rgb(32 34 24 / 4%); }
+    .sidebar-brand { grid-area: brand; min-width: 0; padding: 0; }
+    .sidebar-brand .brand-mark { width: 32px; height: 32px; }
+    .nav-caption { display: none; }
+    .main-nav { grid-area: nav; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; margin-top: 8px; }
+    .main-nav a { display: flex; min-height: 40px; align-items: center; justify-content: center; padding: 8px 6px; text-align: center; white-space: nowrap; }
+    .sidebar-bottom { grid-area: user; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin: 0; padding: 0; border: 0; }
+    .sidebar-bottom .user-label { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sidebar-bottom .user-label small { display: none; }
+    .sidebar-bottom .text-button { min-height: 40px; padding: 0 5px; }
+    .main-content { max-width: 1500px; margin: 0 auto; padding: 24px 22px 42px; }
+    .page-header { margin-bottom: 20px; }
+    .dashboard-content, .report-page { gap: 14px; }
+}
+
+@media (max-width: 680px) {
+    .sidebar { padding: 9px 12px 7px; }
+    .sidebar-brand { gap: 8px; font-size: 13px; }
+    .main-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: 7px; }
+    .main-nav a { min-height: 38px; padding: 7px 4px; font-size: 11px; }
+    .sidebar-bottom { gap: 5px; }
+    .sidebar-bottom .user-label { display: none; }
+    .sidebar-bottom .text-button { min-width: 48px; min-height: 38px; font-size: 12px; }
+    .main-content { padding: 19px 12px 30px; }
+    .page-header h1 { font-size: 23px; }
+    .content-section { padding: 16px 12px; border-radius: 8px; }
+    .section-heading { flex-direction: column; gap: 12px; }
+    .dashboard-panel { padding: 15px 13px; }
+    .metric { min-width: 0; }
+    .metric > strong { overflow-wrap: anywhere; }
+    .report-metrics .metric { padding: 13px 10px; }
+    .table-wrap { overscroll-behavior-inline: contain; scrollbar-color: #bbc4b9 #f4f5f2; scrollbar-width: thin; }
+    .table-wrap > table { min-width: 680px; }
+    .transaction-heading { flex-direction: column; }
+    .transaction-admin-actions, .transaction-admin-actions button { width: 100%; }
+    .transaction-cancel-note { margin: -4px 0 14px; line-height: 1.5; }
+    .detail-toolbar { align-items: flex-start; gap: 10px; }
+    .transaction-detail-actions { flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .transaction-detail-actions .secondary-button { padding-inline: 9px; font-size: 11px; }
+    .history-filters input, .history-filters select, .report-filter select, .report-custom-dates input { min-height: 42px; font-size: 12px; }
+    .history-filters .secondary-button, .report-filter .secondary-button { min-height: 42px; }
+    .report-actions { grid-template-columns: 1fr 1fr; }
+    .settings-form { gap: 13px; }
+}
+
+@media (max-width: 390px) {
+    .main-nav a { font-size: 10px; }
+    .main-content { padding-inline: 9px; }
+    .metric { padding-inline: 10px; }
+    .report-actions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+    .pos-main { padding: 16px 11px 28px; }
+    .pos-heading { align-items: flex-start; }
+    .pos-date { font-size: 11px; }
+    .pos-open-indicator { white-space: nowrap; }
+    .menu-toolbar { align-items: stretch; flex-direction: column; gap: 10px; }
+    .pos-search { width: 100%; max-width: none; min-height: 44px; }
+    .category-filters { padding-bottom: 4px; }
+    .category-chip { min-height: 42px; }
+    .menu-grid { gap: 8px; }
+    .menu-item { min-width: 0; }
+    .menu-photo { height: clamp(104px, 34vw, 150px); }
+    .menu-item-copy { min-height: 86px; }
+    .order-panel { bottom: max(6px, env(safe-area-inset-bottom)); max-height: 56vh; overscroll-behavior: contain; }
+    .order-panel form { padding: 13px 12px calc(12px + env(safe-area-inset-bottom)); }
+    .order-lines { max-height: 126px; overscroll-behavior: contain; }
+    .cash-input-wrap { min-height: 44px; }
+    .checkout-button { min-height: 48px; }
+    .cashier-sales-filter { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+    .cashier-sales-filter button { grid-column: 1 / -1; min-height: 40px; }
+    .cashier-sales-filter input { min-height: 40px; min-width: 0; }
+    .cashier-sales-metrics .metric { min-width: 0; padding: 13px 10px; }
+    .cashier-sales-metrics .metric > strong { overflow-wrap: anywhere; }
+    .cashier-report-page .metric-strip { grid-template-columns: 1fr 1fr; }
+    .cashier-report-page .metric { min-width: 0; padding: 13px 10px; }
+    .cashier-report-page .metric > strong { overflow-wrap: anywhere; }
+    .cashier-report-page .dashboard-panel-heading { gap: 12px; }
+    .cashier-report-page .chart-switch { min-height: 38px; }
+    .cashier-report-page .chart-switch button { min-height: 32px; font-size: 10px; }
+    .cashier-history-table { min-width: 700px; }
+}
+
+@media (max-width: 390px) {
+    .pos-topbar { padding-inline: 10px; }
+    .pos-brand { max-width: 42%; overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .pos-session { gap: 7px !important; }
+    .pos-history-link, .pos-session .text-button { font-size: 10px; }
+    .cashier-sales-metrics .metric > strong, .cashier-report-page .metric > strong { font-size: 14px; }
+    .menu-item-copy { padding-inline: 8px; }
+    .cart-line { gap: 7px; }
+    .quantity-control { width: 38px; height: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

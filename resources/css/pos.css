@@ -1,0 +1,23 @@
+@media (min-width: 681px) and (max-width: 1100px) {
+    .category-chip { min-height: 40px; padding-inline: 15px; }
+    .quantity-control { width: 34px; height: 34px; }
+    .cart-line-controls { gap: 7px; }
+    .cash-presets button { min-height: 32px; padding-inline: 10px; }
+    .menu-item-name { font-size: 13px; }
+    .menu-item-category, .menu-item-copy strong, .cash-label, .checkout-hint { font-size: 11px; }
+}
+
+@media (max-width: 680px) {
+    .category-chip { min-height: 40px; }
+    .quantity-control { width: 36px; height: 36px; }
+    .cash-presets button { min-height: 34px; flex: 1; }
+    .menu-item-name { font-size: 13px; }
+    .menu-item-category, .menu-item-copy strong { font-size: 11px; }
+    .cashier-name, .pos-session .text-button { font-size: 12px; }
+}
+
+.menu-stock { color: #83877e; font-size: 9px; }.menu-item:disabled { cursor: not-allowed; opacity: .62; }.menu-item:disabled .menu-add-mark { display: none; }.menu-item:disabled .menu-stock { color: #a34f43; font-weight: 600; }.quantity-control:disabled { border-color: #ecece7; background: #f6f6f3; color: #b2b4ac; cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-item, .menu-photo img, .checkout-button, .category-chip { transition: none; }
+}
