@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - /bin/cp resources/views/admin/transactions/index.blade.php /home/serf7754/bebekgimbo/resources/views/admin/transactions/index.blade.php
