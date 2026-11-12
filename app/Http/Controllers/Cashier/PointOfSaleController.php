@@ -50,7 +50,7 @@ class PointOfSaleController extends Controller
             'items.*.quantity' => ['required', 'integer', 'min:1', 'max:99'],
         ], ['items.required' => 'Keranjang masih kosong.', 'items.min' => 'Tambahkan menu sebelum menyelesaikan pembayaran.', 'items.*.product_id.distinct' => 'Menu yang sama tidak boleh dikirim berulang kali.']);
         $data['cash_received'] = $data['payment_method'] === 'cash' ? (int) $data['cash_received'] : null;
-        if ($data['payment_method'] === 'qris' && ! config('services.midtrans.server_key')) return back()->withErrors(['payment_method' => 'Midtrans belum dikonfigurasi. Tambahkan kunci Sandbox di .env.'])->withInput();
+        if ($data['payment_method'] === 'qris' && ! config('services.midtrans.server_key')) return back()->withErrors(['payment_method' => 'Midtrans belum dikonfigurasi. Hubungi admin untuk menyiapkan pembayaran.'])->withInput();
         $transaction = $checkout->complete($request->user(), $data);
 
         if ($transaction->payment_method === 'qris') {
@@ -80,6 +80,6 @@ class PointOfSaleController extends Controller
     public function receipt(Request $request, Transaction $transaction): View
     {
         abort_unless($request->user()->isAdmin() || $transaction->user_id === $request->user()->id, 403);
-        return view('cashier.receipt', ['transaction' => $transaction->load(['cashier:id,name', 'items']), 'restaurant' => RestaurantSetting::query()->first(), 'midtransClientKey' => config('services.midtrans.client_key')]);
+        return view('cashier.receipt', ['transaction' => $transaction->load(['cashier:id,name', 'items']), 'restaurant' => RestaurantSetting::query()->first(), 'midtransClientKey' => config('services.midtrans.client_key'), 'midtransIsProduction' => config('services.midtrans.is_production')]);
     }
 }

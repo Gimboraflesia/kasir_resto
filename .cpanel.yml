@@ -1,4 +1,5 @@
+
 ---
 deployment:
   tasks:
-    - /bin/cp resources/views/admin/transactions/index.blade.php /home/serf7754/bebekgimbo/resources/views/admin/transactions/index.blade.php
+    - /usr/bin/rsync -a --exclude='.git/' --exclude='.cpanel.yml' --exclude='/.env' --exclude='/vendor/' --exclude='/node_modules/' --exclude='/storage/' --exclude='/public/storage' ./ /home/serf7754/bebekgimbo/

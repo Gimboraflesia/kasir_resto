@@ -81,7 +81,7 @@
                     <div class="payment-method-options" role="group" aria-label="Metode pembayaran">
                         <label class="payment-method-option"><input type="radio" name="payment_method" value="cash" checked data-payment-method><span><strong>Tunai</strong><small>Catat uang diterima</small></span></label>
                         <label class="payment-method-option"><input type="radio" name="payment_method" value="qris_manual" data-payment-method><span><strong>QRIS manual</strong><small>Kasir konfirmasi pembayaran</small></span></label>
-                        <label class="payment-method-option"><input type="radio" name="payment_method" value="qris" data-payment-method><span><strong>QRIS Midtrans</strong><small>Snap Sandbox</small></span></label>
+                        <label class="payment-method-option"><input type="radio" name="payment_method" value="qris" data-payment-method><span><strong>QRIS Midtrans</strong><small>Pembayaran otomatis</small></span></label>
                     </div>
                     <div class="cash-fields" data-cash-fields>
                     <div class="payment-title payment-subtitle"><span class="payment-icon" aria-hidden="true">Rp</span><div><h3 id="cash-heading">Pembayaran tunai</h3><p>Masukkan uang yang diterima.</p></div></div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="change-row"><span>Kembalian</span><strong data-change-amount>Rp 0</strong></div>
                     </div>
-                    <p class="qris-manual-note" data-qris-note hidden>Pilih QRIS manual untuk mencatat pembayaran tanpa verifikasi otomatis. Pilih QRIS Midtrans untuk membuat QR pembayaran Sandbox.</p>
+                    <p class="qris-manual-note" data-qris-note hidden>Pilih QRIS manual untuk mencatat pembayaran tanpa verifikasi otomatis. Pilih QRIS Midtrans untuk membuat QR pembayaran.</p>
                 </section>
 
                 <div class="checkout-hidden-items" data-checkout-items></div>

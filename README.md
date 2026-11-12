@@ -29,13 +29,13 @@ Jalankan `npm run build` saat menyiapkan rilis. Server shared hosting hanya perl
 
 - Login admin dan kasir dengan pembatasan akses berdasarkan role; registrasi publik tidak tersedia.
 - Pengelolaan kategori dan menu, termasuk stok barang, harga modal, target keuntungan per menu, arsip produk, dan unggah gambar.
-- Kasir untuk pembayaran tunai, QRIS manual, dan QRIS Midtrans Snap Sandbox; total dihitung di backend, pembayaran Midtrans menunggu webhook bertanda tangan, stok diperbarui sesuai status pembayaran, dan struk dapat dicetak.
+- Kasir untuk pembayaran tunai, QRIS manual, dan QRIS Midtrans Snap; total dihitung di backend, pembayaran Midtrans menunggu webhook bertanda tangan, stok diperbarui sesuai status pembayaran, dan struk dapat dicetak.
 - Dashboard penjualan, riwayat transaksi, laporan, ekspor Excel `.xlsx`, dan unduhan PDF.
 - Pengaturan identitas restoran serta pengelolaan akun kasir.
 
 Ekspor Excel dan PDF memakai PhpSpreadsheet dan Dompdf. Aktifkan ekstensi PHP `zip` untuk file `.xlsx`; server juga perlu ekstensi `gd`, `dom`, dan `mbstring` untuk pemrosesan file serta PDF.
 
-Panduan konfigurasi dan uji Midtrans Snap QRIS Sandbox tersedia di [MIDTRANS.md](MIDTRANS.md). Mode production tetap nonaktif; pembayaran Midtrans hanya dianggap lunas setelah webhook bertanda tangan diverifikasi.
+Untuk menerima pembayaran Midtrans sungguhan, atur `MIDTRANS_IS_PRODUCTION=true` dan gunakan pasangan Server Key serta Client Key production dari dashboard Midtrans. Pastikan URL notifikasi/webhook Midtrans mengarah ke `/webhooks/midtrans`. Pembayaran hanya dianggap lunas setelah webhook bertanda tangan diverifikasi. Kunci Sandbox yang sekarang ada di `.env` lokal tidak dapat memproses pembayaran sungguhan.
 
 Panduan deployment shared hosting tersedia di [DEPLOYMENT.md](DEPLOYMENT.md).
 

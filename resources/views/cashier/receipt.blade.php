@@ -14,7 +14,7 @@
         </article>
     </section>
     @if($transaction->midtrans_token && $midtransClientKey)
-        <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ $midtransClientKey }}"></script>
+        <script src="{{ $midtransIsProduction ? 'https://app.midtrans.com/snap/snap.js' : 'https://app.sandbox.midtrans.com/snap/snap.js' }}" data-client-key="{{ $midtransClientKey }}"></script>
         <script>document.getElementById('pay-button')?.addEventListener('click', () => window.snap.pay(@js($transaction->midtrans_token), { onSuccess: () => window.location.reload(), onPending: () => window.location.reload(), onError: () => window.location.reload(), onClose: () => window.location.reload() }));</script>
     @endif
 </x-layouts.cashier>
